@@ -126,7 +126,6 @@ if arquivo:
                 
                 progresso.progress(100)
                 status.empty()
-                st.balloons()
 
                 # 6. Download
                 col_res_1, col_res_2 = st.columns([3, 1])
@@ -147,9 +146,9 @@ if arquivo:
                         
             except Exception as e:
                 st.error(f"Ocorreu um erro: {e}")
-                st.warning("Verifique se o 'rubberband.exe' e as DLLs estão na pasta Scripts do .venv")
             
             finally:
 
                 pass
+
 
