@@ -31,7 +31,7 @@ def calcular_semitons(origem, destino, oitavas):
     return (mapa[destino] - mapa[origem]) + (oitavas * 12)
 
 # --- Interface ---
-st.title("Alterador de Tom PRO 2025")
+st.title("Alterador de Tom")
 st.markdown("### Com Rubberband")
 
 arquivo = st.file_uploader("Escolha sua música (MP3, WAV, OGG, FLAC)", 
@@ -152,3 +152,4 @@ if arquivo:
             finally:
 
                 pass
+
