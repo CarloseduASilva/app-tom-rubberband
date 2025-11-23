@@ -38,7 +38,6 @@ arquivo = st.file_uploader("Escolha sua música (MP3, WAV, OGG, FLAC)",
                           type=["mp3", "wav", "ogg", "flac", "m4a"])
 
 if arquivo:
-    # Garante extensão correta para o SoundFile não se perder
     extensao = os.path.splitext(arquivo.name)[1].lower()
     if not extensao: extensao = ".wav"
     
@@ -96,8 +95,7 @@ if arquivo:
                 if preservar_formantes:
                     argumentos_rb['--formant'] = ''
                 
-                # Se for modo Rápido, usamos --realtime (sacrifica um pouquinho de qualidade por velocidade)
-                # Se for Padrão, não passamos nada extra (o padrão do Rubberband já é excelente)
+              
                 if "Rápido" in qualidade:
                     argumentos_rb['--realtime'] = ''
                 
@@ -112,7 +110,7 @@ if arquivo:
                 )
                 progresso.progress(75)
 
-                # 4. Pós-processamento (Normalização segura)
+                # 4. Pós-processamento 
                 max_val = np.max(np.abs(y_shifted))
                 if max_val > 1.0:
                     y_shifted = y_shifted / max_val * 0.99
@@ -152,4 +150,5 @@ if arquivo:
                 st.warning("Verifique se o 'rubberband.exe' e as DLLs estão na pasta Scripts do .venv")
             
             finally:
+
                 pass
